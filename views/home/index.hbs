@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div id="issues-col" class="col">
+      {{#each Quotes}}
+        <div class="card">
+          <div id="stock-{{@index}}" class="card-body">
+            <h3 class="card-title">{{this.price.symbol}}</h3>
+            <h5 style="display:inline"> Current: </h5>
+            <p id="stock-{{@index}}-current" style="display:inline">{{this.summaryDetail.ask}}</p>
+            <h5> DayLow: {{this.summaryDetail.dayLow}}{{this.price.currencySymbol}}</h5>
+            <h5> DayHigh: {{this.summaryDetail.dayHigh}}{{this.price.currencySymbol}}</h5>
+            <h5 style="display:inline"> My stats: </h5>
+            <p id="stock-{{@index}}-stats" style="display:inline">{{this.myStats.bought}}</p>
+            </br>
+            <h5 style="display:inline"> #Shares: </h5>
+            <p id="stock-{{@index}}-shares" style="display:inline">{{this.myStats.have}}</p>
+            </br>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</div>
