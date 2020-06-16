@@ -9,6 +9,7 @@ router.route('/')
   .get(function (request, response, next) {
     // render the view for the home page
 
+    // NOTE(Oskar): Example stocks for testing. Load theese dynamically.
     YahooFinance.quote({
         symbol: 'NDA-SE.ST',
         modules: ['price', 'summaryDetail']
@@ -18,9 +19,10 @@ router.route('/')
             throw err
         }
         
+        // TODO(Oskar): Example values. User can fill in w/e
         Nordea.myStats = {
-            bought: 69,
-            have: 153
+            boughtAt: 30,
+            have: 200
         }
 
         YahooFinance.quote({
@@ -32,9 +34,10 @@ router.route('/')
                 throw err
             }
             
+            // TODO(Oskar): Example values. User can fill in w/e
             BeyondMeat.myStats = {
-                bought: 153.04,
-                have: 15
+                boughtAt: 100.00,
+                have: 30
             }
 
             response.render('home/index', {Quotes : [Nordea, BeyondMeat]})
@@ -43,5 +46,4 @@ router.route('/')
 
   })
 
-// Exports
 module.exports = router

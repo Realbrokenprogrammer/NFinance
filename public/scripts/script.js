@@ -8,23 +8,23 @@ function calculateStuff()
 {
     for (let i = 0; i < 2; ++i)
     {
-        let nordea = document.getElementById('stock-' + i)
-        let nordeaCurrent = document.getElementById('stock-'+ i +'-current').textContent
-        let nordeaStats = document.getElementById('stock-'+ i +'-stats').textContent
-        let nordeaShares = document.getElementById('stock-'+ i +'-shares').textContent
+        let stock = document.getElementById('stock-' + i)
+        let stockCurrent = document.getElementById('stock-'+ i +'-current').textContent
+        let stockBoughtAt = document.getElementById('stock-'+ i +'-boughtAt').textContent
+        let stockShares = document.getElementById('stock-'+ i +'-shares').textContent
 
-        let spent = parseInt(nordeaShares) * parseInt(nordeaStats)
-        let x = document.createElement('H5')
-        x.textContent = 'Spent: ' + spent
-        nordea.append(x)
+        let spentValue = parseInt(stockShares) * parseInt(stockBoughtAt)
+        let spentElement = document.createElement('H5')
+        spentElement.textContent = 'Spent: ' + spentValue
+        stock.append(spentElement)
 
-        let value = parseInt(nordeaShares) * parseFloat(nordeaCurrent)
-        let y = document.createElement('H5')
-        y.textContent = 'Current Value: ' + value
-        nordea.append(y)
+        let CurrentValue = parseInt(stockShares) * parseFloat(stockCurrent)
+        let CurrentValueElement = document.createElement('H5')
+        CurrentValueElement.textContent = 'Current Value: ' + CurrentValue
+        stock.append(CurrentValueElement)
 
-        let z = document.createElement('H5')
-        z.textContent = 'Current W/L: ' + ((parseFloat(nordeaCurrent) - parseInt(nordeaStats)) * parseInt(nordeaShares))
-        nordea.append(z)
+        let CurrentWinLossElement = document.createElement('H5')
+        CurrentWinLossElement.textContent = 'Current W/L: ' + ((parseFloat(stockCurrent) - parseInt(stockBoughtAt)) * parseInt(stockShares))
+        stock.append(CurrentWinLossElement)
     }
 }
