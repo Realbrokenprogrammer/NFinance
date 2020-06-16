@@ -6,7 +6,9 @@ window.onload = function() {
 
 function calculateStuff()
 {
-    for (let i = 0; i < 2; ++i)
+    // TODO(Oskar): Add a propper class for the number of stocks to go through.
+    let numberOfStocks = document.getElementsByClassName('card-body').length
+    for (let i = 0; i < numberOfStocks; ++i)
     {
         let stock = document.getElementById('stock-' + i)
         let stockCurrent = document.getElementById('stock-'+ i +'-current').textContent
